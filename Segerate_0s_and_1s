@@ -1,0 +1,19 @@
+class Solution{   
+public:
+    void segregate0and1(int arr[], int n) {
+        // code here
+        int l=0;
+        int h=n-1;
+        while(l<n){
+            while(arr[l]==0 && l<h){
+                l++;
+            }
+            while(arr[h]==1 && l<h){
+                h--;
+            }
+            swap(arr[l], arr[h]);
+            l++;
+            h--;
+        }
+    }
+};
