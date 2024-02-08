@@ -18,3 +18,51 @@ public:
         return ans;
     }
 };
+
+
+
+
+
+//other ways
+
+class Solution {
+public:
+int sortingMethod(vector<int>& nums){
+    sort(nums.begin(), nums.end());
+    for(int i=0; i<nums.size(); i++){
+        if(i==nums[i]) continue;
+        else return i;
+    }
+    return nums.size();
+}
+
+
+int xorr(vector<int>& nums){
+    int ans=0;
+    //xor all values of array
+    for(int i=0; i<nums.size(); i++){
+        ans ^=nums[i];
+    }
+
+    //xor all values in rangge [0-N]
+    int n= nums.size();
+    for(int i=0; i<=n; i++){
+        ans ^=i;
+    }
+    return ans;
+}
+    int missingNumber(vector<int>& nums) {
+        // int sum=0;
+        // int n=nums.size();
+        // for(int index=0; index<n; index++){
+        //     sum=sum+nums[index];
+        // }
+        // int totalSum=((n)*(n+1))/2;
+        // int ans=totalSum-sum;
+        // return ans;
+
+        //method of sorting
+        //return sortingMethod(nums);
+        return xorr(nums);
+    }
+};
