@@ -5,24 +5,83 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int n=nums.size();
-        int index=0;
-        int left=0;
-        int right=n-1;
-        while(index<=right){
-            if(nums[index]==0){
-                swap(nums[index],nums[left]);
-                left++;
-                index++;
+
+        //one of the ways
+        //sort(nums.begin(), nums.end());
+        
+
+
+
+        //method 2
+        // int zeros,ones,twos;
+        // zeros=ones=twos=0;
+        // for (int i=0; i<nums.size(); i++){
+        //     if(nums[i]==0){
+        //         zeros++;
+        //     }
+        //     else if(nums[i]==1){
+        //         ones++;
+        //     }
+        //     else{
+        //         twos++;
+        //     }
+        // }
+        // int i=0;
+        // while(zeros--){
+        //     nums[i]=0;
+        //     i++;
+        // }
+        // while(ones--){
+        //     nums[i]=1;
+        //     i++;
+        // }
+        // while(twos--){
+        //     nums[i]=2;
+        //     i++;
+        // }
+        
+
+
+
+        //method 3
+        int l=0, m=0, h=nums.size()-1;
+        while(m<=h){
+            if(nums[m]==0){
+                swap(nums[l], nums[m]);
+                l++, m++;
             }
-            else if(nums[index]==2){
-                swap(nums[index],nums[right]);
-                right--;
+            else if(nums[m]==1){
+                m++;
             }
             else{
-                index++;
+                swap(nums[m],nums[h]);
+                h--;
             }
         }
+        
+
+
+
+
+        //method-4
+        // int n=nums.size();
+        // int index=0;
+        // int left=0;
+        // int right=n-1;
+        // while(index<=right){
+        //     if(nums[index]==0){
+        //         swap(nums[index],nums[left]);
+        //         left++;
+        //         index++;
+        //     }
+        //     else if(nums[index]==2){
+        //         swap(nums[index],nums[right]);
+        //         right--;
+        //     }
+        //     else{
+        //         index++;
+        //     }
+        // }
         
     }
 };
